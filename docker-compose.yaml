@@ -1,0 +1,23 @@
+version: "3"
+services:
+  voting:
+    image: voting-app
+    ports:
+      - 8080:80
+
+  redis:
+    image: redis:alpine
+
+  worker:
+    image: worker
+
+  db:
+    image: postgres:15-alpine
+    environment:
+       POSTGRES_USER: postgres
+       POSTGRES_PASSWORD: postgres
+
+  result:
+    image: result
+    ports:
+      - 8081:80
